@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Tip calculator app</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">SPLI</h1>
+      <h1 class="title">TTER</h1>
+    </header>
+    <main>
+      <section class="billing-data-entry">
+        <div class="input-container">
+          <label class="input-label" for="bill">Bill</label>
+          <input class="input-field" type="number" min="0" id="bill" />
+        </div>
+        <div class="input-container">
+          <label class="input-label" for="tip-selector">Select Tip %</label>
+          <div class="tip-options">
+            <div class="tip-option constant" id="5">5%</div>
+            <div class="tip-option constant" id="10">10%</div>
+            <div class="tip-option constant" id="15">15%</div>
+            <div class="tip-option constant" id="25">25%</div>
+            <div class="tip-option constant" id="50">50%</div>
+            <input type="number" min="0" id="custom-tip" placeholder="Custom" />
+          </div>
+        </div>
+        <div class="input-container">
+          <label class="input-label" for="n-people">Number of People</label>
+          <input
+            class="input-field"
+            type="number"
+            min="0"
+            id="n-people"
+            step="1"
+          />
+        </div>
+      </section>
+      <section class="billing-summary">
+        <div class="billing-summary-data-container">
+          <div class="billing-summary-data">
+            <p class="billing-summary-label">Tip Amount</p>
+            <p class="amount-person" id="tip-amount">$0.00</p>
+          </div>
+          <div class="billing-summary-data">
+            <p class="billing-summary-label">Total</p>
+            <p class="amount-person" id="total-amount">$0.00</p>
+          </div>
+        </div>
+        <div class="reset-btn">RESET</div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

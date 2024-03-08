@@ -1,0 +1,521 @@
+:root {
+  /* Colors */
+  --strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --mint: #dcf9f5;
+  /* Colors */
+
+  /* Typography */
+  --font-family: "Space Mono", monospace;
+  /* Typography */
+}
+
+/* Reset start */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+input[type="number"]:not(#n-people)::-webkit-inner-spin-button,
+input[type="number"]:not(#n-people)::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Optional */
+}
+
+input[type="number"]:not(#n-people) {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* Reset end */
+
+/* General Styles end */
+
+html {
+  background-color: var(--mint);
+  font-family: var(--font-family);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* General Styles end */
+
+/* Title start */
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--grayish-cyan);
+  letter-spacing: 1rem;
+}
+
+/* Title end */
+
+/* Tip calculator start */
+
+main {
+  width: 80%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #ffff;
+  border-radius: 30px;
+}
+
+/* Tip calculator end */
+
+/* Billing data entry start */
+
+.billing-data-entry {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input start */
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--grayish-cyan);
+}
+
+.input-container:hover,
+.input-label:hover,
+input:hover {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  background-color: var(--very-light-grayish-cyan);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: right;
+  color: var(--very-dark-cyan);
+  border-radius: 5px;
+  padding-block: 10px;
+  padding-inline: 1rem;
+}
+
+input:focus {
+  outline: 2px solid #26c0ab;
+}
+
+#bill {
+  background-image: url(images/icon-dollar.svg);
+}
+
+#n-people {
+  background-image: url(images/icon-person.svg);
+}
+
+.input-field {
+  background-repeat: no-repeat;
+  background-position-x: 1rem;
+  background-position-y: center;
+}
+
+/* Input end */
+
+/* Tip options start end */
+
+.tip-options {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tip-option,
+#custom-tip {
+  width: calc((100% - 2rem) / 3);
+  padding-block: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.tip-option {
+  color: #ffff;
+  background-color: var(--very-dark-cyan);
+}
+
+.constant:hover {
+  background-color: var(--mint);
+  color: var(--very-dark-cyan);
+}
+
+#custom-tip {
+  background-color: var(--very-light-grayish-cyan);
+  color: black;
+  text-align: right;
+}
+
+#custom-tip::placeholder {
+  text-align: center;
+}
+
+/* Tip options end */
+
+/* Active states start */
+.input-field.invalid,
+#custom-tip.invalid {
+  outline: 2px solid red;
+}
+
+.input-container.invalid::after {
+  content: "Invalid Value";
+  font-size: 1rem;
+  font-weight: 700;
+  display: block;
+  text-align: end;
+  color: red;
+  width: 100%;
+  height: 1.5rem;
+}
+
+.tip-option.active {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+/* Active states end */
+
+/* Billing data entry end */
+
+/* Billing summary start */
+
+.billing-summary {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  background-color: var(--very-dark-cyan);
+  border-radius: 30px;
+}
+
+.billing-summary-data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.billing-summary-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.billing-summary-label {
+  width: 40%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffff;
+}
+
+.billing-summary-label::after {
+  content: "/ person";
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--grayish-cyan);
+  display: block;
+}
+
+.amount-person {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--strong-cyan);
+}
+
+.reset-btn {
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--very-dark-cyan);
+  background-color: var(--strong-cyan);
+  text-align: center;
+  padding-block: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: var(--mint);
+}
+/* Billing summary end */
+
+/* Media queries start */
+
+/* || MOBILE-SMARTPHONE */
+@media screen and (max-width: 432px) {
+  body {
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  header {
+    margin: auto 0;
+  }
+
+  main {
+    width: 100%;
+    padding: 1rem;
+    flex-direction: column;
+    border-radius: 30px 30px 0 0;
+    justify-content: space-around;
+  }
+
+  .billing-data-entry,
+  .billing-summary {
+    width: 100%;
+  }
+
+  .billing-data-entry {
+    justify-content: space-between;
+  }
+
+  .input-label {
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  .tip-options {
+    gap: 0.5rem;
+  }
+
+  .tip-option,
+  #custom-tip {
+    width: calc((100% - 1rem) / 2);
+    font-size: 1rem;
+    padding-block: 0.8rem;
+  }
+
+  .billing-summary {
+    padding: 1.5rem;
+    height: 40%;
+  }
+
+  .billing-summary-label {
+    font-size: 1rem;
+  }
+
+  .amount-person {
+    font-size: 2.5rem;
+  }
+
+  .input-container.invalid::after {
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 100%;
+    height: 1rem;
+  }
+
+  .tip-option.active {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .input-label {
+    font-size: 0.7rem;
+  }
+
+  input {
+    font-size: 0.8rem;
+  }
+
+  .tip-option,
+  #custom-tip {
+    font-size: 0.7rem;
+    padding-block: 0.5rem;
+  }
+
+  .amount-person {
+    font-size: 2rem;
+  }
+
+  .reset-btn {
+    font-size: 1rem;
+    padding-block: 0.5rem;
+  }
+}
+
+@media screen and (max-height: 932px) {
+  main {
+    height: 80%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-height: 768px) {
+  main {
+    height: 85%;
+  }
+  .input-label {
+    font-size: 1rem;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  .tip-option,
+  #custom-tip {
+    font-size: 1rem;
+    padding-block: 0.5rem;
+  }
+
+  .amount-person {
+    font-size: 2rem;
+  }
+
+  .reset-btn {
+    font-size: 1rem;
+    padding-block: 0.5rem;
+  }
+}
+
+@media screen and (max-height: 667px) {
+  main {
+    height: 88%;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  main {
+    height: 92%;
+  }
+
+  .title {
+    font-size: 0.8rem;
+  }
+
+  .input-field {
+    background-size: auto 12px;
+  }
+
+  .billing-summary {
+    padding: 0.8rem;
+  }
+
+  .billing-summary-label {
+    font-size: 0.8rem;
+  }
+
+  .billing-summary-label::after {
+    font-size: 0.7rem;
+  }
+
+  .amount-person {
+    font-size: 1.4rem;
+  }
+
+  .reset-btn {
+    font-size: 0.7rem;
+  }
+}
+/* || MOBILE-SMARTPHONE */
+
+/* Media queries end */
